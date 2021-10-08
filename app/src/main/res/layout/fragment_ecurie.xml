@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable name="Model"
+            type="com.example.regatta.view_model.RaceViewModel"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_skipper"
+            android:layout_width="200dp"
+            android:layout_height="16dp"
+            android:layout_marginTop="48dp"
+            android:text="@{Model.skipper}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_bateau"
+            android:layout_width="200dp"
+            android:layout_height="16dp"
+            android:layout_marginTop="48dp"
+            android:text="@{Model.bateau}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_skipper" />
+
+        <Button
+            android:id="@+id/btn_ecurie_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:text="Equipe suivante"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_bateau"
+            android:onClick="@{() -> Model.ecurieSuivante()}"/>
+
+        <TextView
+            android:id="@+id/tv_ecurie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(Model.ecurie_id)}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_ecurie_next" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
